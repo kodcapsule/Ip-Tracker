@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | IP Address Tracker</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <header>
+      <div class="search-container">
+        <h1>IP Address Tracker</h1>
+        <form id="form" role="search">
+          <input
+            type="search"
+            id="query"
+            name="q"
+            placeholder="Search for any ip address or domain"
+            aria-label="Search through site content"
+            class="input_ip"
+            required
+            pattern="[Bb]anana|[Cc]herry"
+          />
+          <button class="btn">
+            <img src="images/icon-arrow.svg" alt="" />
+          </button>
+        </form>
+      </div>
+    </header>
+
+    <main>
+      <div class="ip-details">
+        <div class="container">
+          <h3 class="">ip address</h3>
+          <h2 class="ip">192.168.3.5</h2>
+        </div>
+        <div class="container">
+          <h3 class="">Location</h3>
+          <h2 class="locattion">Accra</h2>
+        </div>
+        <div class="container">
+          <h3>time-zone</h3>
+          <h2 class="time-zone">UT-5:20</h2>
+        </div>
+        <div class="container">
+          <h3>Isp</h3>
+          <h2 class="isp">space X starlink</h2>
+        </div>
+      </div>
+      <div class="map-container" id="map">
+        <!--  -->
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Kuseh Wewoli</a>.
+    </div>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
