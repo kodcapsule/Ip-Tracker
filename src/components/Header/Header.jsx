@@ -2,25 +2,72 @@ import Search_Icon from "../../assets/images/icon-arrow.svg";
 
 const API_KEY = "at_NFpL4iZDQjQq6Ptsj20w8IPWe01pR";
 
-const Header = ({ getSearchInput }) => {
+// IMPORTS
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const Header = () => {
+  const [ipAddress, setIpAddress] = useState("");
+  const notify = () =>
+    toast.error("Invalid IP", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  // handle form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (ipAddress.length < 5) {
+      notify();
+
+      return;
+    }
+    console.log(ipAddress);
+  }
   return (
     <header className=" text-center flex flex-col items-center bg-cover bg-mobile px-2 py-10 sm:bg-desktop">
       <h2 className=" text-xl text-white font-semibold mb-3">
         Ip Address Tracker
       </h2>
-      <div className="input__form flex  bg-white w-fit  rounded-lg overflow-hidden  mb-3  sm:w-[25%] hover:cursor-pointer">
+      <form
+        method="post"
+        onSubmit={handleSubmit}
+        className="input__form flex  bg-white w-fit  rounded-lg overflow-hidden  mb-3  sm:w-[25%] hover:cursor-pointer"
+      >
         <input
           type="search"
+          name="ipAddress"
           placeholder=" Search for an IP "
           className=" w-[90%] p-3 focus:outline-none text-black "
+          onChange={(e) => {
+            setIpAddress(e.target.value);
+          }}
         />
         <button
           className=" bg-verydarkgray py-3 px-5 sm:w-fit transition-all delay-300 hover:cursor-pointer hover:opacity-[0.8] "
-          onClick={getSearchInput}
+          type="submit"
         >
           <img src={Search_Icon} alt="Search Icon" />
         </button>
-      </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+      </form>
     </header>
   );
 };
