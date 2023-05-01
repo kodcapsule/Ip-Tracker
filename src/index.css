@@ -6,3 +6,8 @@
 body {
   font-family: "Rubik", sans-serif;
 }
+
+.leaflet-container {
+  height: 76.2vh;
+  z-index: 1;
+}

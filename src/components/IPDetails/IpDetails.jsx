@@ -1,6 +1,6 @@
 const IpDetails = () => {
   return (
-    <article className=" bg-white flex flex-col gap-5 rounded-md shadow-lg w-[80%] p-10 font-semibold mx-auto absolute top-[9.5rem] left-10 md:flex-row md:left-40 md:justify-between">
+    <article className=" bg-white flex flex-col z-50 gap-5 rounded-md shadow-lg w-[80%] p-10 font-semibold mx-auto absolute top-[9.5rem] left-10 md:flex-row md:left-40 md:justify-between">
       <div className="ip__item text-center flex flex-col md:items-start md:gap-2 px-4 border-r">
         <h4 className=" uppercase text-darkgray text-xs">ip address </h4>
         <h2 className="text-2xl font-semibold text-verydarkgray">
