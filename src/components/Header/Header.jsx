@@ -1,6 +1,7 @@
 import Search_Icon from "../../assets/images/icon-arrow.svg";
 
-const API_KEY = "at_NFpL4iZDQjQq6Ptsj20w8IPWe01pR";
+import axios from "../../../src/utilities/axios";
+import { API_KEY } from "../../utilities/utilities";
 
 // IMPORTS
 import { useState } from "react";
@@ -21,13 +22,21 @@ const Header = () => {
       theme: "light",
     });
   // handle form submit
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (ipAddress.length < 5) {
       notify();
 
       return;
     }
+
+    try {
+      const response = await axios.get();
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log(ipAddress);
   }
   return (
