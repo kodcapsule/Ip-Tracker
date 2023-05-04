@@ -4,12 +4,15 @@ import axios from "../../../src/utilities/axios";
 import { API_KEY } from "../../utilities/utilities";
 
 // IMPORTS
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { IpData } from "../../utilities/context";
 
 const Header = () => {
+  const { setIP } = useContext(IpData);
   const [ipAddress, setIpAddress] = useState("");
+  const [country, setCountry] = useState("");
   const notify = () =>
     toast.error("Invalid IP", {
       position: "top-center",
@@ -33,6 +36,7 @@ const Header = () => {
     try {
       const response = await axios.get();
       console.log(response.data);
+      setCountry(response.data.location.city);
     } catch (error) {
       console.log(error);
     }
@@ -56,6 +60,7 @@ const Header = () => {
           className=" w-[90%] p-3 focus:outline-none text-black "
           onChange={(e) => {
             setIpAddress(e.target.value);
+            setIP(e.target.value);
           }}
         />
         <button

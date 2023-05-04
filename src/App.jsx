@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import IpDetails from "./components/IPDetails/IpDetails";
 import Map from "./components/Map/Map";
 
+import ContextData from "./utilities/context";
+
 function App() {
   const [ipAddress1, setIpAddress1] = useState("");
   function getSearchInput(ip) {
@@ -11,9 +13,11 @@ function App() {
   }
   return (
     <main className=" ">
-      <Header />
-      <IpDetails />
-      <Map />
+      <ContextData>
+        <Header />
+        <IpDetails />
+        <Map />
+      </ContextData>
     </main>
   );
 }
